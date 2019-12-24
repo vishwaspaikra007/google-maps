@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google maps page</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Google Map</h1>
+    <div id="map"></div>
+<script>
+    var initMap = () => {
+        var options = {
+            zoom : 11.3,
+            center : { lat:21.2214 ,lng:81.6296 }
+        }
+        // new Map
+        var map = new google.maps.Map(document.getElementById('map'), options);
+
+        // // add marker
+        // var marker = new google.maps.Marker({
+        //     position:{lat: 21.1632, lng: 81.6591},
+        //     map:map
+        //     //icon:''
+        // });
+
+        // var infoWindow = new google.maps.InfoWindow({
+        //     content: '<h1> Government Engineering College Raipur</h1>'
+        // });
+
+        // marker.addListener('click', ()=> {
+        //     infoWindow.open(map, marker);
+        // })
+
+        var markers = [
+            {
+                coords : {lat: 21.1632, lng: 81.6591},
+                content : '<h1> Government Engineering College Raipur</h1>'            
+            },
+            {
+                coords : {lat: 21.2497, lng: 81.6050},
+                content : '<h1>NIT Raipur</h1>'
+            }
+        ];
+
+        for(let i=0;i<markers.length;i++) {
+            addMarker(markers[i]);
+        }
+
+        function addMarker(props) {
+            var marker = new google.maps.Marker({
+            position:props.coords,
+            map:map
+            //icon:''
+            });
+
+            if(props.content){   
+                var infoWindow = new google.maps.InfoWindow({
+                content: props.content
+                }); 
+            }
+
+            marker.addListener('click', ()=> {
+                infoWindow.open(map, marker);
+            })
+        }
+
+        // listen for click on map
+
+        google.maps.event.addListener(map, 'click', event => {
+            addMarker({coords:event.latLng});
+        })
+          
+    }    
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLH8RjgRLmA_67rWa-I_AJIR3j5GAORVo&callback=initMap"
+async defer></script>
+</body>
+</html>
