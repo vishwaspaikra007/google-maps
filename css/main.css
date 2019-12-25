@@ -1,0 +1,79 @@
+*
+{
+    box-sizing: border-box;
+}
+a
+{
+    text-decoration: none;
+}
+body
+{
+    margin: 0;
+    width: 100%;
+    height: 200vh;
+}
+#firstView
+{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+#mapImage
+{
+    background-image: url("../img/mapNY.png");      
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#profile
+{
+    background-image: url('../img/myPic.jpeg');
+    background-position: center;
+    background-size: cover;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#profileContainer
+{
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+}
+.bioData
+{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 7px;
+    font-weight: bold;
+    color: black;
+    transition: 500ms;
+    background: rgba(255,255,255,0.6)
+}
+.bioData:hover
+{
+    transform: scale(1.1);
+}
+#mainView
+{
+    width: 100%;
+    height: calc(100vh - 50px);
+    background-image: url(../img/tajMahal.jpg);
+    position: fixed;
+    top:0;
+    background-size: cover; 
+    position: relative;
+    z-index: -1;
+}
+#menu
+{
+    position: sticky;
+    top: 0;
+    background: white;
+    height: 50px;
+    padding: 10px;
+}
