@@ -1,0 +1,13 @@
+#map
+{
+    height: 400px;
+    margin: auto;
+}
+#first
+{
+    background: white;
+    border-radius: 50px;
+    width: 90%;
+    margin: auto;
+    padding: 50px;
+}
